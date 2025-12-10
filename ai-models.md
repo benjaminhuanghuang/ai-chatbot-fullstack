@@ -53,9 +53,9 @@ npm i tiktoken
 
 ## Choosing the Right Model
 
-REASONING
-COST
-SPEED
-CONTEXT
-MODALITIES
-PRIVACY
+- Reasoning
+- Cost
+- Speed
+- Context
+- Modalities
+- Privacy
