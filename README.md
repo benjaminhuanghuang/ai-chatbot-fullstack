@@ -1,6 +1,18 @@
 # Build AI-Powered Apps – An AI Course for Developers - Mosh
 
-https://codewithmosh.com/p/build-ai-powered-apps
+<https://codewithmosh.com/p/build-ai-powered-apps>
+
+<https://www.bilibili.com/video/BV1ju2sBjEW7>
+
+<https://www.bilibili.com/video/BV1tVYuz3E2N/>
+
+## Tech stack
+
+- Bun
+- Tailwind
+- shadcn/ui
+- Prisma
+- Ollama
 
 ## Course Content
 
