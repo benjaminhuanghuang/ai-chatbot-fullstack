@@ -56,7 +56,7 @@ npm i tiktoken
 - Reasoning: Extract, classify, summarize
 - Cost
 - Speed
-- Context
+- Context: Input, response, chat history
 - Modalities
 - Privacy
 
@@ -70,3 +70,11 @@ npm i tiktoken
 多模态模型（multimodal models） 就是同时处理多种数据，如图文、视听等。
 
 例如：ChatGPT Vision 是 视觉 + 文本模态；语音助手是 语音（音频）+ 文本 模态。
+
+## Model settings
+
+### TEMPERATURE
+
+● 0.2 - 0.4 for logical, precise answers
+● 0.7 - 1.0 for creative, expressive tasks
+● Don't use higher values
