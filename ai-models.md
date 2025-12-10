@@ -44,7 +44,18 @@ GPT-4o Mini: 128K
 GPT-4.1: 1M
 Mistral: 32K
 
+## get tokens
+
 ```sh
 npm init -y
 npm i tiktoken
 ```
+
+## Choosing the Right Model
+
+REASONING
+COST
+SPEED
+CONTEXT
+MODALITIES
+PRIVACY
