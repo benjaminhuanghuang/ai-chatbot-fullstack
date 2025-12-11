@@ -9,7 +9,7 @@ bun create vite .
 bun install
 ```
 
-Connect to API
+Connect to API using proxy
 
 ```json
 
