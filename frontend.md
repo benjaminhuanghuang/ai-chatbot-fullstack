@@ -27,3 +27,11 @@ bun add tailwindcss @tailwindcss/vite
 ```
 
 Modify vite.config.ts
+Modify index.css
+Install Tailwind CSS IntelliSense Extension
+
+## Shadcn
+
+<https://ui.shadcn.com/docs/installation/vite>
+
+Moidfy

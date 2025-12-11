@@ -6,5 +6,5 @@ bun init
     - Blank
 
 bun add express
-bun add -d @types/express @types/node
+bun add -D @types/express @types/node
 ```
