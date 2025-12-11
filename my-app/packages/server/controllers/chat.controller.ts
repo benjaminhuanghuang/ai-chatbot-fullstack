@@ -11,7 +11,7 @@ const chatSchema = z.object({
    conversationId: z.uuid(),
 });
 
-export class chatController {
+export const chatController = {
    async sendMessage(req: Request, res: Response) {
       const parseResult = chatSchema.safeParse(req.body);
       if (!parseResult.success) {
@@ -20,10 +20,13 @@ export class chatController {
             .json({ errors: z.treeifyError(parseResult.error) });
       }
       try {
+         const { prompt, conversationId } = req.body;
          const response = await chatService.sendMessage(prompt, conversationId);
-         res.status(200).json({ response });
+         res.json({ message: response.message });
       } catch (error) {
-         res.status(500).json({ error: 'Failed to send message' });
+         res.status(500).json({
+            error: 'Failed to generate a response message',
+         });
       }
-   }
-}
+   },
+};
