@@ -14,7 +14,7 @@ Create workspace
 cd my-app
 
 bun init
--Blank
+    - Blank
 
 bun install
 
