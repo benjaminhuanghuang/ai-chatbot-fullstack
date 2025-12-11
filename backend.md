@@ -1,8 +1,10 @@
 # Backend
 
 ```sh
-cd my-app
-
+cd package/server
 bun init
--Blank
+Blank
+
+bun add express
+bun add -d @types/express @types/node
 ```

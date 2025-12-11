@@ -106,7 +106,6 @@ __pycache__/
 bin/
 debug/
 obj/
-packages/
 .vs/
 data
 uv.lock

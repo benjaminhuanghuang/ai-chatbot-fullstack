@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "server",
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -8,9 +8,5 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "workspaces": [
-    "packages/client",
-    "packages/server"
-  ]
+  }
 }
