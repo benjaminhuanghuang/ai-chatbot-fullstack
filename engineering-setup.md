@@ -45,11 +45,23 @@ Create .prettierrc
 Format code from command
 
 ```sh
+cd my-app
 bun add -D prettier
+
+bun run format
 ```
 
 ## Husky
 
 ```sh
+bun add -D husky
+bunx husky init
 
+bun add -D lint-staged
+```
+
+Modify pre-commit
+
+```sh
+bun lint-state
 ```
