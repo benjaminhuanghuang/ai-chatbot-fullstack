@@ -41,3 +41,9 @@ bunx -bun shadcn@latest init
 bunx -bun shadcn@latest add button
 
 ```
+
+## Form
+
+```sh
+bun add react-hook-form
+```
