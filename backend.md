@@ -8,3 +8,9 @@ bun init
 bun add express
 bun add -D @types/express @types/node
 ```
+
+## Validation
+
+```sh
+bun add zod
+```

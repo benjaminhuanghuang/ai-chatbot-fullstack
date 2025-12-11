@@ -60,8 +60,13 @@ bunx husky init
 bun add -D lint-staged
 ```
 
+lint-staged 是一个工具，用来在 Git 暂存区（staged）文件 上运行脚本。
+
 Modify pre-commit
 
 ```sh
-bun lint-state
+# 在提交 (git commit) 之前自动运行 ESLint、Prettier、Stylelint 等，只检查本次提交修改的文件，
+bunx lint-staged
 ```
+
+Add .lintstagedrc
