@@ -28,6 +28,14 @@ Modify package.json
 ]
 ```
 
+## Start multi apps using single command
+
+```sh
+bun add -d concurrently
+```
+
+Modify my-app/index.ts
+
 ## Prettier
 
 ## Husky
