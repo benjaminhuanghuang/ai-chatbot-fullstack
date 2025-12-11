@@ -5,7 +5,7 @@ import { chatController } from './controllers/chat.controller';
 
 const router = express.Router();
 
-router.get('/api/health', (req: Request, res: Response) => {
+router.get('/health', (req: Request, res: Response) => {
    res.json({ status: 'ok' });
 });
 
