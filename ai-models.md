@@ -78,3 +78,5 @@ npm i tiktoken
 ● 0.2 - 0.4 for logical, precise answers
 ● 0.7 - 1.0 for creative, expressive tasks
 ● Don't use higher values
+
+## Call OpenAI api
