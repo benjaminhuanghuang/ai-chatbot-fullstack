@@ -38,4 +38,18 @@ Modify my-app/index.ts
 
 ## Prettier
 
+Add Prettier Extension in VS Code
+
+Create .prettierrc
+
+Format code from command
+
+```sh
+bun add -D prettier
+```
+
 ## Husky
+
+```sh
+
+```

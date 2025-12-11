@@ -34,4 +34,10 @@ Install Tailwind CSS IntelliSense Extension
 
 <https://ui.shadcn.com/docs/installation/vite>
 
-Moidfy
+```sh
+bunx -bun shadcn@latest init
+
+
+bunx -bun shadcn@latest add button
+
+```

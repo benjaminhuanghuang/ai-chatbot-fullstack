@@ -1,6 +1,7 @@
 {
-  "dependencies": {},
-  "devDependencies": {
-    "concurrently": "^9.2.1"
-  }
+   "dependencies": {},
+   "devDependencies": {
+      "concurrently": "^9.2.1",
+      "prettier": "^3.7.4"
+   }
 }
