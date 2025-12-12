@@ -60,9 +60,9 @@ bun add react-markdown
 
 ```js
 <div className="flex self-start gap-1 px-3 py-3 bg-gray-200 rounded-xl items-center">
-    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
-    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.2s]"></div>
-    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.4s]"></div>
+  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
+  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.2s]"></div>
+  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.4s]"></div>
 </div>
 ```
 
@@ -70,9 +70,9 @@ bun add react-markdown
 
 ```js
 useEffect(() => {
-    if (lastMessageRef.current) {
-        lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+  if (lastMessageRef.current) {
+    lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 }, [messages]);
 ```
 
@@ -88,4 +88,16 @@ onCopy={(e) => {
         e.clipboardData.setData('text/plain', selection);
     }
 }}
+```
+
+## Add sound effects
+
+```js
+import popSound from "@/assets/sounds/pop.mp3";
+import notificationSound from "@/assets/sounds/notification.mp3";
+const popAudio = new Audio(popSound);
+popAudio.volume = 0.2;
+
+const notificationAudio = new Audio(notificationSound);
+notificationAudio.volume = 0.2;
 ```
