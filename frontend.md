@@ -47,3 +47,11 @@ bunx --bun shadcn@latest add button
 ```sh
 bun add react-hook-form
 ```
+
+## Render messages
+
+## Markdown
+
+```sh
+bun add react-markdown
+```
