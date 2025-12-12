@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 type FormData = {
    prompt: string;
@@ -50,7 +51,7 @@ export const ChatBot = () => {
                   key={index}
                   className={`px-2 py-1  rounded-xl ${msg.role === 'user' ? 'bg-blue-500 text-white self-end' : 'bg-gray-100  text-black self-start'}`}
                >
-                  {msg.content}
+                  <ReactMarkdown>{msg.content}</ReactMarkdown>
                </p>
             ))}
          </div>
