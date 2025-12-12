@@ -55,3 +55,37 @@ bun add react-hook-form
 ```sh
 bun add react-markdown
 ```
+
+## Type indicator
+
+```js
+<div className="flex self-start gap-1 px-3 py-3 bg-gray-200 rounded-xl items-center">
+    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
+    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.2s]"></div>
+    <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.4s]"></div>
+</div>
+```
+
+## Auto scrolling
+
+```js
+useEffect(() => {
+    if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+}, [messages]);
+```
+
+## Copy
+
+Clean the format
+
+```js
+onCopy={(e) => {
+    const selection = window.getSelection()?.toString().trim();
+    if (selection && selection.length > 0) {
+        e.stopPropagation();
+        e.clipboardData.setData('text/plain', selection);
+    }
+}}
+```
