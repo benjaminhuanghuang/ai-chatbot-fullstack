@@ -1,9 +1,11 @@
 import { FaArrowUp } from 'react-icons/fa';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useRef, useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
+import TypingIndicator from './TypingIndicator';
+import type { Message } from './ChatMessages';
+import ChatMessages from './ChatMessages';
 
 type FormData = {
    prompt: string;
@@ -11,11 +13,6 @@ type FormData = {
 
 type ChatResponse = {
    message: string;
-};
-
-type Message = {
-   role: 'user' | 'bot';
-   content: string;
 };
 
 export const ChatBot = () => {
@@ -37,6 +34,7 @@ export const ChatBot = () => {
          const currentConversationId = conversationId.current;
          setMessages((prev) => [...prev, { role: 'user', content: prompt }]);
          setIsBotTyping(true);
+         setError(null);
          // console.log(data);
          reset({
             prompt: '',
@@ -52,10 +50,13 @@ export const ChatBot = () => {
             { role: 'bot', content: data.message },
          ]);
          setIsBotTyping(false);
-         setError(null);
-      } catch (err: any) {
+      } catch (err: unknown) {
          setIsBotTyping(false);
-         setError(err.message || 'Something went wrong');
+         if (err instanceof Error) {
+            setError(err.message);
+         } else {
+            setError('Something went wrong');
+         }
       }
    };
 
@@ -66,36 +67,15 @@ export const ChatBot = () => {
       }
    };
 
-   const onCopyMessage = (e: React.ClipboardEvent<HTMLParagraphElement>) => {
-      const selection = window.getSelection()?.toString().trim();
-      if (selection && selection.length > 0) {
-         e.stopPropagation();
-         e.clipboardData.setData('text/plain', selection);
-      }
-   };
    return (
       <div className="flex flex-col h-full">
          <div className="flex flex-col flex-1 gap-3 mb-10 overflow-y-auto">
-            {messages.map((msg, index) => (
-               <div
-                  key={index}
-                  onCopy={onCopyMessage}
-                  ref={index === messages.length - 1 ? lastMessageRef : null}
-                  className={`px-3 py-1  rounded-xl ${msg.role === 'user' ? 'bg-blue-500 text-white self-end' : 'bg-gray-100  text-black self-start'}`}
-               >
-                  <ReactMarkdown>{msg.content}</ReactMarkdown>
-               </div>
-            ))}
-            {isBotTyping && (
-               <div className="flex self-start gap-1 px-3 py-3 bg-gray-200 rounded-xl items-center">
-                  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
-                  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.2s]"></div>
-                  <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.4s]"></div>
-               </div>
-            )}
+            <ChatMessages messages={messages} />
+            {isBotTyping && <TypingIndicator />}
             {error && <p className="text-red-500">{error}</p>}
          </div>
          <form
+            // eslint-disable-next-line react-hooks/refs
             onSubmit={handleSubmit(onSubmit)}
             onKeyDown={onKeyDown}
             className="flex flex-col gap-2 items-end border-2 p-4 rounded-3xl"
