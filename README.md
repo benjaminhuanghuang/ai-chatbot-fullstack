@@ -1,6 +1,7 @@
 # Build AI-Powered Apps – An AI Course for Developers - Mosh
 
 <https://codewithmosh.com/p/build-ai-powered-apps>
+<https://github.com/mosh-hamedani/ai-powered-apps-course>
 
 <https://www.bilibili.com/video/BV1ju2sBjEW7>
 
