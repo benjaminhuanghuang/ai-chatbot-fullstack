@@ -70,8 +70,8 @@ bun add react-markdown
 
 ```js
 useEffect(() => {
-    if (formRef.current) {
-        formRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (lastMessageRef.current) {
+        lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 }, [messages]);
 ```

@@ -21,6 +21,7 @@ type Message = {
 export const ChatBot = () => {
    const [messages, setMessages] = useState<Message[]>([]);
    const [isBotTyping, setIsBotTyping] = useState(false);
+   const [error, setError] = useState<string | null>(null);
    const conversationId = useRef(crypto.randomUUID());
    const lastMessageRef = useRef<HTMLDivElement>(null);
    const { register, handleSubmit, reset, formState } = useForm<FormData>();
@@ -32,21 +33,30 @@ export const ChatBot = () => {
    }, [messages]);
 
    const onSubmit = async ({ prompt }: FormData) => {
-      const currentConversationId = conversationId.current;
-      setMessages((prev) => [...prev, { role: 'user', content: prompt }]);
-      setIsBotTyping(true);
-      // console.log(data);
-      reset({
-         prompt: '',
-      });
-      const { data } = await axios.post<ChatResponse>('/api/chat', {
-         prompt,
-         conversationId: currentConversationId,
-      });
-      // Note!, do not use setMessages([...messages, data.message]) here,
-      // it will overwrite messages state set at line 21
-      setMessages((prev) => [...prev, { role: 'bot', content: data.message }]);
-      setIsBotTyping(false);
+      try {
+         const currentConversationId = conversationId.current;
+         setMessages((prev) => [...prev, { role: 'user', content: prompt }]);
+         setIsBotTyping(true);
+         // console.log(data);
+         reset({
+            prompt: '',
+         });
+         const { data } = await axios.post<ChatResponse>('/api/chat', {
+            prompt,
+            conversationId: currentConversationId,
+         });
+         // Note!, do not use setMessages([...messages, data.message]) here,
+         // it will overwrite messages state set at line 21
+         setMessages((prev) => [
+            ...prev,
+            { role: 'bot', content: data.message },
+         ]);
+         setIsBotTyping(false);
+         setError(null);
+      } catch (err: any) {
+         setIsBotTyping(false);
+         setError(err.message || 'Something went wrong');
+      }
    };
 
    const onKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
@@ -83,6 +93,7 @@ export const ChatBot = () => {
                   <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay:0.4s]"></div>
                </div>
             )}
+            {error && <p className="text-red-500">{error}</p>}
          </div>
          <form
             onSubmit={handleSubmit(onSubmit)}
