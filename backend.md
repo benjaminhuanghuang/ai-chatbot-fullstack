@@ -54,3 +54,15 @@ bunx prisma migrate dev
 
 There is the Prisma Schema
 Generate a complete SQL script to populate the products and reviews tables in a MySQL database based on the schema above.
+
+## API
+
+```js
+const prisma = new PrismaClient();
+const productId = Number(req.params.id);
+
+// SELECT * FROM reviews WHERE productId = @productId
+prisma.review.findMany({
+  where: { productId },
+});
+```
