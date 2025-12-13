@@ -1,3 +1,4 @@
+import { InferenceClient } from '@huggingface/inference';
 import OpenAI from 'openai';
 import { Ollama } from 'ollama';
 import summarizePrompt from './prompts/summarize-reviews.txt';
@@ -5,6 +6,9 @@ import summarizePrompt from './prompts/summarize-reviews.txt';
 const openAIClient = new OpenAI({
    apiKey: process.env.OPENAI_API_KEY,
 });
+// Using Hugging Face API
+const inferenceClient = new InferenceClient(process.env.HF_TOKEN);
+
 const ollamaClient = new Ollama();
 
 type GenerateTextOptions = {
