@@ -38,6 +38,8 @@ Add DATABASE_URL TO .env
 
 Add models into prisma/schema.prisma
 
+## Generate data table
+
 ```sh
 bunx prisma migrate dev
     - init
@@ -48,6 +50,12 @@ bunx prisma migrate dev
 ```sh
 bunx prisma migrate dev
     - refine-schema
+```
+
+## Generates the Prisma Client based on your models
+
+```sh
+bunx prisma generate
 ```
 
 ## Seed

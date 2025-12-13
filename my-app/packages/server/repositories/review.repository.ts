@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { PrismaClient, type Review } from '../generated/prisma';
+import { PrismaClient, type Review } from '../generated/prisma/';
 
 const prisma = new PrismaClient();
 
