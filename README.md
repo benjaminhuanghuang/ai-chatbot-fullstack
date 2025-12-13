@@ -5,7 +5,9 @@
 
 <https://www.bilibili.com/video/BV1ju2sBjEW7>
 
-<https://www.bilibili.com/video/BV1tVYuz3E2N/>
+[p1](https://www.bilibili.com/video/BV1tVYuz3E2N/)
+
+[p2](https://www.bilibili.com/video/BV1MVYuz3EEe)
 
 ## Tech stack
 
